@@ -1,0 +1,16 @@
+server:
+  port: 8081
+blog:
+  id: 1
+  title: tn666's blog - test
+  tags:
+    - 技术
+    - Java
+    - Spring Boot
+  relation-blog:
+    - url: https://www.test1.com
+      title: xiaoming's blog
+    - url: https://www.test2.com
+      title: xiaohong's blog
+logging:
+  config: classpath:log4j2-test.xml
