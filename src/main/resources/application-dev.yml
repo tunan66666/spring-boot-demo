@@ -1,5 +1,12 @@
 server:
   port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_boot_demo
+    username: root
+    password: test
+
 blog:
   id: 1
   title: tn666's blog - dev

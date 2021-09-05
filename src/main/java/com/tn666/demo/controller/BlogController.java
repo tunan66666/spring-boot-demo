@@ -1,14 +1,14 @@
 package com.tn666.demo.controller;
 
 import com.tn666.demo.configuration.BlogConfig;
+import com.tn666.demo.dao.BlogMapper;
+import com.tn666.demo.entity.Blog;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("blog")
@@ -45,6 +45,20 @@ public class BlogController {
         logger.warn("warn log");
         logger.error("error log");
         return "print log ok";
+    }
+
+    @Autowired
+    private BlogMapper blogMapper;
+
+    @GetMapping(value = "getById")
+    public Blog getById(@RequestParam("id") Integer id) {
+        return blogMapper.getById(id);
+    }
+
+    @PostMapping(value = "insert")
+    public int insert(@RequestBody Blog blog) {
+        blogMapper.insert(blog);
+        return blog.getId();
     }
 
 }
