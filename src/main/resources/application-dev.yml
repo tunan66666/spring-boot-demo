@@ -3,9 +3,16 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/spring_boot_demo
-    username: root
-    password: test
+    blog:
+      jdbc-url: jdbc:mysql://localhost:3306/blog
+      username: root
+      password: test
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    user:
+      jdbc-url: jdbc:mysql://localhost:3306/user
+      username: root
+      password: test
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
 blog:
   id: 1

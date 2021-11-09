@@ -1,7 +1,8 @@
-package com.tn666.demo.entity;
+package com.tn666.demo.entity.blog;
 
-public class Blog {
+public class BlogPo {
     private Integer id;
+    private String blogId;
     private String title;
     private String category;
 
@@ -10,6 +11,13 @@ public class Blog {
     }
     public void setId (Integer id) {
         this.id = id;
+    }
+
+    public String getBlogId() {
+        return this.getBlogId();
+    }
+    public void setBlogId(String blogId) {
+        this.blogId = blogId;
     }
 
     public String getTitle () {
