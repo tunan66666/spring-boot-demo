@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ArticleMapper {
+public interface ArticleDao {
 
     @Select("select * from article where article_id = #{articleId}")
     @Results({@Result(column = "article_id", property = "articleId")})

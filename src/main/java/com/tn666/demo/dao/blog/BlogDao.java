@@ -2,9 +2,10 @@ package com.tn666.demo.dao.blog;
 
 import com.tn666.demo.entity.blog.BlogPo;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
-@Mapper
-public interface BlogMapper {
+@Repository
+public interface BlogDao {
 
     @Select("select * from blog where id = #{id}")
     BlogPo getById(@Param("id") Integer id);

@@ -1,7 +1,7 @@
 package com.tn666.demo.controller;
 
 import com.tn666.demo.configuration.BlogConfig;
-import com.tn666.demo.dao.blog.BlogMapper;
+import com.tn666.demo.dao.blog.BlogDao;
 import com.tn666.demo.entity.blog.BlogPo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ public class BlogController {
     }
 
     @Autowired
-    private BlogMapper blogMapper;
+    private BlogDao blogMapper;
 
     @GetMapping(value = "getById")
     public BlogPo getById(@RequestParam("id") Integer id) {

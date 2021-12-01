@@ -17,15 +17,14 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = "com.tn666.demo.dao.blog", sqlSessionTemplateRef = "blogSqlSessionTemplate")
 public class DataSourceBlogConfig {
 
+    @Primary
     @Bean(name = "blogDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.blog")
-    @Primary
     public DataSource blogDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "blogSqlSessionFactory")
-    @Primary
     public SqlSessionFactory blogSqlSessionFactory(@Qualifier("blogDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
@@ -33,7 +32,6 @@ public class DataSourceBlogConfig {
     }
 
     @Bean(name = "blogSqlSessionTemplate")
-    @Primary
     public SqlSessionTemplate blogSqlSessionTemplate(@Qualifier("blogSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }

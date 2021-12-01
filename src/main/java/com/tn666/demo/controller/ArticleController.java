@@ -1,7 +1,7 @@
 package com.tn666.demo.controller;
 
+import com.tn666.demo.dao.blog.ArticleDao;
 import com.tn666.demo.entity.blog.ArticlePo;
-import com.tn666.demo.service.ArticleService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -11,17 +11,17 @@ import javax.annotation.Resource;
 public class ArticleController {
 
     @Resource
-    private ArticleService articleService;
+    private ArticleDao articleDao;
 
     @GetMapping(value = "/get")
     public ArticlePo get(@RequestParam("articleId") String articleId) {
-        ArticlePo articlePo = articleService.get(articleId);
+        ArticlePo articlePo = articleDao.get(articleId);
         return articlePo;
     }
 
     @PostMapping(value = "/insert")
     public Boolean insert(@RequestBody ArticlePo articlePo) {
-        articleService.insert(articlePo);
+        articleDao.insert(articlePo);
         Boolean res = false;
         if (articlePo.getId() > 0) {
             res = true;

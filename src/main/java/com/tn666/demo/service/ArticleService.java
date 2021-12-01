@@ -1,6 +1,6 @@
 package com.tn666.demo.service;
 
-import com.tn666.demo.dao.blog.ArticleMapper;
+import com.tn666.demo.dao.blog.ArticleDao;
 import com.tn666.demo.entity.blog.ArticlePo;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 public class ArticleService {
 
     @Resource
-    private ArticleMapper articleMapper;
+    private ArticleDao articleMapper;
 
     public ArticlePo get(String articleId) {
         ArticlePo articlePo = articleMapper.get(articleId);

@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserInfoMapper {
+public interface UserInfoDao {
 
     @Select("select * from user_info where user_id=#{userId}")
     @Results({@Result(column = "user_id", property = "userId")})
